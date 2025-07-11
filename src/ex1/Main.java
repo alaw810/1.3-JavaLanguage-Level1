@@ -3,6 +3,7 @@ package ex1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class Main {
 
         // Using for to print the list before adding August
         System.out.println("\n--- Month list before adding August ---");
-        for (int i = 0 ; i < monthsList.size() ; i++) {
+        for (int i = 0; i < monthsList.size(); i++) {
             System.out.println((i + 1) + ". " + monthsList.get(i).getName());
         }
 
@@ -43,6 +44,17 @@ public class Main {
         monthsList.add(new Month("October"));
         System.out.println("\nList size after adding duplicates: " + monthsList.size());
 
+        // Creating the HashSet and checking its size
+        Set<Month> monthSet = new HashSet<>(monthsList);
+        System.out.println("\nSet size after adding the list: " + monthSet.size() +
+                ". Duplicate values were removed.");
 
+        // Iterating the set
+        System.out.println("\n--- Month set ---");
+        i = 1;
+        for (var m : monthSet) {
+            System.out.println(i + ". " + m.getName());
+            i++;
+        }
     }
 }
